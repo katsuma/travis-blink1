@@ -107,15 +107,23 @@ describe Travis::Blink1 do
       allow(Travis::Blink1).to receive(:fetch_repository_name).and_return(repository_name)
       allow(Travis::Blink1).to receive(:loop?).and_return(false)
       allow(Travis::Blink1).to receive(:sleep).and_return(true)
+      allow(Travis::Blink1).to receive(:banner).and_return("")
     end
 
     let(:repository_name) do
       "katsuma/travis-blink1"
     end
 
+    let(:repository) do
+      double(reload: double(last_build: double(state: state)))
+    end
+
     context "when Travis CI is passed" do
+      let(:state) do
+        "passed"
+      end
+
       before do
-        repository = double(last_build: double(state: "passed"))
         allow(Travis::Repository).to receive(:find).and_return(repository)
       end
 
@@ -126,13 +134,31 @@ describe Travis::Blink1 do
     end
 
     context "when Travis CI is errored" do
+      let(:state) do
+        "errored"
+      end
+
       before do
-        repository = double(last_build: double(state: "errored"))
         allow(Travis::Repository).to receive(:find).and_return(repository)
       end
 
       it "notifies by 'errored'" do
         expect(Travis::Blink1).to receive(:notify_by).with('errored', anything)
+        subject
+      end
+    end
+
+    context "When Travis CI is started" do
+      let(:state) do
+        "started"
+      end
+
+      before do
+        allow(Travis::Repository).to receive(:find).and_return(repository)
+      end
+
+      it "notifies by 'errored'" do
+        expect(Travis::Blink1).to receive(:notify_by).with('started', anything)
         subject
       end
     end

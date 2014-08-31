@@ -5,10 +5,11 @@ require 'travis'
 
 module Travis
   module Blink1
-    SLEEP_SEC = 30
+    BLINK_TIMES = 30
 
-    GREEN = [0, 255, 0].freeze
-    RED   = [255, 0, 0].freeze
+    GREEN  = [0, 255, 0].freeze
+    RED    = [255, 0, 0].freeze
+    YELLOW = [255, 255, 0].freeze
 
     def run
       blink1 = ::Blink1.new
@@ -21,11 +22,13 @@ module Travis
 
       repository_name = fetch_repository_name
       repository = Travis::Repository.find(repository_name)
+      banner(repository_name)
 
       begin
-        state = repository.last_build.state
+        state = repository.reload.last_build.state
         notify_by(state, blink1: blink1)
-        sleep(SLEEP_SEC)
+
+        sleep(BLINK_TIMES)
       end while loop?
     end
 
@@ -46,11 +49,17 @@ module Travis
 
     def notify_by(state, blink1: nil)
       case state
-      when 'passed'
+      when "passed"
         blink1.set_rgb(*GREEN)
-      when 'errored'
-        blink1.blink(*RED, SLEEP_SEC)
+      when "errored", "failed"
+        blink1.blink(*RED, BLINK_TIMES)
+      when "started"
+        blink1.blink(*YELLOW, BLINK_TIMES)
       end
+    end
+
+    def banner(repository_name)
+      puts "Watching repository: #{repository_name}"
     end
 
     def loop?
