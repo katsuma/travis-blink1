@@ -5,7 +5,7 @@ require 'travis'
 
 module Travis
   module Blink1
-    BLINK_TIMES = 30
+    BLINK_TIMES = 7
 
     GREEN  = [0, 255, 0].freeze
     RED    = [255, 0, 0].freeze
@@ -28,7 +28,7 @@ module Travis
         state = repository.reload.last_build.state
         notify_by(state, blink1: blink1)
 
-        sleep(BLINK_TIMES)
+        sleep(3)
       end while loop?
     end
 
