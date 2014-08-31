@@ -1,6 +1,10 @@
 # Travis::Blink1
 
-TODO: Write a gem description
+`travis-blink1` is a simple sign by blink(1).
+
+When you specify a repository travis-blink1 checks your pull request and it shows signal by Travis CI is passed or not.
+Of course gree sign is passed and red is not.
+
 
 ## Installation
 
@@ -20,7 +24,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+When you specify `git remote` address on github.com at your repository root,
+try simply like this.
+
+```sh
+travis-blink1
+```
+
+You can also specify repository name.
+
+```sh
+travis-blink1 your_name/your_repository
+```
+
 
 ## Contributing
 
