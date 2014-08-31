@@ -5,6 +5,16 @@
 When you specify a repository travis-blink1 checks your pull request and it shows signal by Travis CI is passed or not.
 Of course gree sign is passed and red is not.
 
+## Demo movie
+
+### when CI is failed
+
+- [https://instagram.com/p/sXbnyZBJ74/](https://instagram.com/p/sXbnyZBJ74/)
+
+### when CI is passed
+
+- [https://instagram.com/p/sXbGDRhJ64/](https:///instagram.com/p/sXbGDRhJ64/)
+
 
 ## Installation
 
