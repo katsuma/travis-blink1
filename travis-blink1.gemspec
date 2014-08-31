@@ -20,6 +20,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "rake", "~> 10.3.2"
   spec.add_development_dependency "rspec", "~> 3.0.0"
+  spec.add_development_dependency "guard", "~> 2.6.1"
+  spec.add_development_dependency "guard-rspec", "~> 4.3.1"
+  spec.add_development_dependency "growl", "~> 1.0.3"
+  spec.add_development_dependency "simplecov", "~> 0.9.0"
+  spec.add_development_dependency "coveralls", "~> 0.7.1"
   spec.add_dependency "rb-blink1", "~> 0.0.7"
   spec.add_dependency "travis", "~> 1.7.1"
 end
