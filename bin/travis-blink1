@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'travis/blink1'
+include Travis::Blink1
+
+Travis::Blink1.run
