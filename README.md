@@ -9,11 +9,11 @@ Of course gree sign is passed and red is not.
 
 ### when CI is failed
 
-- [https://instagram.com/p/sXbnyZBJ74/](https://instagram.com/p/sXbnyZBJ74/)
+- [https://www.youtube.com/watch?v=Uyt9pJ9-Th4](https://www.youtube.com/watch?v=Uyt9pJ9-Th4)
 
 ### when CI is passed
 
-- [https://instagram.com/p/sXbGDRhJ64/](https:///instagram.com/p/sXbGDRhJ64/)
+- [https://www.youtube.com/watch?v=_XqXydvLw9w](https://www.youtube.com/watch?v=_XqXydvLw9w)
 
 
 ## Installation
