@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["katsuma@gmail.com"]
   spec.summary       = %q{Simple sign by blink(1) if Travis CI is passed or not.}
   spec.description   = %q{travis-blink1 is a simple sign by blink(1). When you specify a repository travis-blink1 checks your pull request and it shows signal by Travis CI is passed or not. Of course gree sign is passed and red is not.}
-  spec.homepage      = "https://github.com/katsuima/travis-blink1"
+  spec.homepage      = "https://github.com/katsuma/travis-blink1"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
